@@ -1,0 +1,30 @@
+<template>
+  <div>
+    <h1>Hello {{ name }}</h1>
+    <button v-on:click="changeName">changeName</button>
+    <button
+      v-on:mouseover="name = 'hover Scalper'"
+      v-on:mouseleave="name = 'Scalper'"
+    >
+      changeNamebyHovering
+    </button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      name: "Scalper",
+    };
+  },
+  methods: {
+    changeName() {
+      this.name = "Code Scalper";
+    },
+  },
+};
+</script>
+
+<style></style>

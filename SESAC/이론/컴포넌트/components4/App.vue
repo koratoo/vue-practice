@@ -2,7 +2,11 @@
   <div>
     <h2>Hello Component</h2>
     <button @click="displayDetail = true">show detail</button>
-    <DetailView v-if="displayDetail" @closeDetail="close" />
+    <DetailView
+      v-if="displayDetail"
+      @closeDetail="close"
+      @sendData="showData"
+    />
   </div>
 </template>
 
@@ -22,6 +26,9 @@ export default {
     close() {
       this.displayDetail = false;
       console.log("event emit!!!");
+    },
+    showData(data) {
+      console.log(data, "data send!");
     },
   },
 };

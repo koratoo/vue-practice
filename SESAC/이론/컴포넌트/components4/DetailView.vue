@@ -3,6 +3,8 @@
     <div class="container">
       <h2>Detail Page</h2>
       <button @click="closeDetail">close</button>
+      <input type="text" v-model="username" />
+      <button @click="sendData">send Data</button>
     </div>
   </div>
 </template>
@@ -10,9 +12,17 @@
 <script>
 export default {
   name: "detailPage",
+  data() {
+    return {
+      username: "",
+    };
+  },
   methods: {
     closeDetail() {
       this.$emit("closeDetail");
+    },
+    sendData() {
+      this.$emit("sendData", this.username);
     },
   },
 };

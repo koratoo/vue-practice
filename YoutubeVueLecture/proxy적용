@@ -1,0 +1,32 @@
+module.exports = {
+  devServer: {
+    proxy: {
+      '/member': {
+        target: 'http://localhost:8080'
+        }
+      }
+  }
+}
+
+
+----------------------------------
+
+
+<script>
+    import axios from "axios";
+    import {reactive} from "vue";
+
+    export default {
+        name: "Home",
+        components: {},
+        setup() {
+            const state = reactive({
+                items: []
+            })
+            axios.get("/member/list").then(({data}) => {
+                state.items = data;
+            })
+            return {state}
+        }
+    }
+</script>
